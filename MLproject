@@ -1,0 +1,12 @@
+name: tutorial
+
+# conda_env: conda.yaml
+docker_env:
+  image: $MLFLOW_PROJECT_DOCKER_IMAGE
+
+entry_points:
+  main:
+    parameters:
+      alpha: {type: float, default: 0.01}
+      l1_ratio: {type: float, default: 0.1}
+    command: "python train_diabetes.py {alpha} {l1_ratio}"
